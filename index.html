@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>UBDB - Bringing Youth Together</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="#" class="logo">UBDB</a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#home">Home</a></li>
+      <li class="dropdown">
+        <a href="#activity">Activity ▾</a>
+        <div class="dropdown-content">
+          <a href="#sports">Sport Activities</a>
+          <a href="#debates">Debates & Speeches</a>
+          <a href="#teambuilding">Team Building</a>
+        </div>
+      </li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>UBDB</h1>
+  <p>Bringing Youth Together. Embracing Diversity. Creating Connections.</p>
+</section>
+
+<div class="container">
+  <section class="welcome-section">
+    <h2>Welcome to UBDB</h2>
+    <p>UBDB is a non-governmental and non-profit organization which was founded in 2024. The main purpose of UBDB is to bring young people together at an European and global scale, no matter of nationality, religion or sexual orientation, in order to get to know each other and have fun on a journey full of social, cultural and sports activities.</p>
+    <p>One of our main goals is to form figures that impose correct and suitable behaviors for the century that we live in during our activities like:</p>
+    <p><strong>• Intercultural activities</strong> during which our participants learn more about others culture and habits.</p>
+    <p><strong>• Learning through formal and non-formal activities</strong>, learning through fun activities is more efficient because it's less stressful and more natural.</p>
+    <p><strong>• Philanthropy activities</strong> which aim to help and improve the quality of young people's life, giving them a chance to travel, meet new people and create strong relationships.</p>
+    <p>Another interest of our organization is to encourage young people to follow their dreams, to realize what they really want to do, live a healthier life and much more.</p>
+  </section>
+
+  <div class="core-areas">
+    <div class="area-card">
+      <div class="icon">⚽</div>
+      <h3>Sport Activities</h3>
+      <p>Team games that develop the ability to work in a team and to get to know your teammates. Through sports, young people learn cooperation, leadership, and build lasting friendships while staying active and healthy.</p>
+    </div>
+
+    <div class="area-card">
+      <div class="icon">💬</div>
+      <h3>Debates & Speeches</h3>
+      <p>Thematic discussions and presentations that develop the ability to speak in public and help participants overcome their fear of speaking and expressing their opinion in front of an audience. These activities build confidence and critical thinking skills.</p>
+    </div>
+
+    <div class="area-card">
+      <div class="icon">🤝</div>
+      <h3>Team Building</h3>
+      <p>Activities that develop team spirit and social skills, creating strong bonds between young people. These experiences are useful at any time, helping participants grow both personally and professionally through meaningful connections.</p>
+    </div>
+  </div>
+</div>
+
+<section class="cta-section">
+  <h2>Join Us</h2>
+  <p>UBDB, as a young organization, targets a wide field of activities through which we bring together young people from different environments. Our organization supports embracing the differences between people such as religion, sexual orientation or nationality. Together, we create an inclusive community where everyone belongs.</p>
+  <a href="#contact" class="cta-button">Get Involved</a>
+</section>
+
+<footer>
+  <p><strong>UBDB</strong></p>
+  <p>Bringing youth together through social, cultural, and sports activities.</p>
+  <p>2024 | UBDB | All Rights Reserved</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+  }
+</script>
+</body>
+</html>
