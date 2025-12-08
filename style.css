@@ -287,6 +287,12 @@ nav {
   margin-top: 3rem;
 }
 
+.brochure-description {
+  margin: 0.5rem 0 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
 .embed-container {
   position: relative;
   width: 100%;
