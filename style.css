@@ -159,9 +159,26 @@ nav {
 
 .welcome-section h3 {
   font-size: 1.5rem;
-  color: #2563eb;
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+.nature-page .welcome-section h2,
+.nature-page .welcome-section h3,
+.nature-page .carousel-section h2,
+.nature-page .video-section h3,
+.nature-page .brochure-section h3 {
+  color: #2f855a;
+}
+
+.nature-page .carousel-dots button.active,
+.nature-page .embed-fallback a {
+  /* background: #2f855a; */
+  color: #2f855a;
+}
+
+.nature-page .embed-fallback a {
+  text-decoration: underline;
 }
 
 .video-section {
