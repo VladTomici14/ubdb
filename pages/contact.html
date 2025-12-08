@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - UBDB</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+<header>
+  <nav>
+    <a href="../index.html" class="logo">
+      <img src="../assets/ubdb-logo.png" alt="UBDB Logo" />
+    </a>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+<section class="hero">
+  <h1>Contact Us</h1>
+  <p>Get in touch with us - we'd love to hear from you!</p>
+</section>
+
+<div class="container">
+  <div class="contact-wrapper">
+    <div class="contact-info">
+      <h2>Get in Touch</h2>
+      <p>Have questions about our programs? Want to get involved? Interested in partnering with us? We're here to help!</p>
+      
+      <div class="info-item">
+        <div class="info-icon">📧</div>
+        <div>
+          <h3>Email</h3>
+          <p>info@ubdb.org</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">📱</div>
+        <div>
+          <h3>Phone</h3>
+          <p>+40 XXX XXX XXX</p>
+        </div>
+      </div>
+      
+      <div class="info-item">
+        <div class="info-icon">📍</div>
+        <div>
+          <h3>Address</h3>
+          <p>Romania</p>
+        </div>
+      </div>
+      
+      <!-- <div class="info-item">
+        <div class="info-icon">🌐</div>
+        <div>
+          <h3>Follow Us</h3>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook">Facebook</a>
+            <a href="#" aria-label="Instagram">Instagram</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
+          </div>
+        </div>
+      </div> -->
+    </div>
+
+    <!-- <div class="contact-form-wrapper">
+      <h2>Send us a Message</h2>
+      <form class="contact-form" id="contactForm">
+        <div class="form-group">
+          <label for="name">Name *</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="email">Email *</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input type="text" id="subject" name="subject" required>
+        </div>
+        
+        <div class="form-group">
+          <label for="message">Message *</label>
+          <textarea id="message" name="message" rows="6" required></textarea>
+        </div>
+        
+        <button type="submit" class="cta-button">Send Message</button>
+      </form>
+    </div> -->
+  </div>
+</div>
+
+<footer>
+  <p><strong>UBDB</strong></p>
+  <p>Bringing youth together through social, cultural, and sports activities.</p>
+  <p>2025 | UBDB | All Rights Reserved</p>
+</footer>
+
+<script>
+  function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    navLinks.classList.toggle('active');
+  }
+
+  document.getElementById('contactForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    alert('Thank you for your message! We will get back to you soon.');
+    this.reset();
+  });
+</script>
+</body>
+</html>
+
