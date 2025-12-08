@@ -196,6 +196,106 @@ nav {
   text-decoration: underline;
 }
 
+.carousel-section {
+  margin: 3rem 0;
+}
+
+.carousel {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  background: #000;
+}
+
+.carousel-track {
+  position: relative;
+  padding-top: 56.25%;
+}
+
+.carousel-slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+.carousel-slide.active {
+  opacity: 1;
+}
+
+.carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  border: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.carousel-control:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.carousel-control.prev {
+  left: 14px;
+}
+
+.carousel-control.next {
+  right: 14px;
+}
+
+.carousel-dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.carousel-dots button {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  padding: 0;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.carousel-dots button.active {
+  background: #2563eb;
+  transform: scale(1.1);
+}
+
+.brochure-section {
+  margin-top: 3rem;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+  background: #fff;
+}
+
 .brochure-section {
   margin-top: 3rem;
 }

@@ -38,6 +38,47 @@
     <h2>About the Project</h2>
     <p>“Nature Needs Us” is a project developed in collaboration with our partners and students from 4 schools from Romania, North Macedonia, Hungary and Czech Republic, as a solution to provide teenagers of 13-17 years old a context to learn about environmental protection and eco-friendly practices through non-formal activities, as their educational institutions do not provide such subjects for them.</p>
 
+    <div class="carousel-section">
+      <h2>Project Moments</h2>
+      <div class="carousel" id="projectCarousel">
+        <div class="carousel-track">
+          <div class="carousel-slide active">
+            <img src="../assets/carousel/pic-1.jpg" alt="Project moment 1">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-2.jpg" alt="Project moment 2">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-3.jpg" alt="Project moment 3">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-4.jpg" alt="Project moment 4">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-5.jpg" alt="Project moment 5">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-6.jpg" alt="Project moment 6">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-7.jpg" alt="Project moment 7">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-8.jpg" alt="Project moment 8">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-9.jpg" alt="Project moment 9">
+          </div>
+          <div class="carousel-slide">
+            <img src="../assets/carousel/pic-10.jpg" alt="Project moment 10">
+          </div>
+        </div>
+        <button class="carousel-control prev" type="button" aria-label="Previous slide">‹</button>
+        <button class="carousel-control next" type="button" aria-label="Next slide">›</button>
+        <div class="carousel-dots" aria-label="Carousel slide selectors"></div>
+      </div>
+    </div>
+
     <h2>Why It Matters</h2>
     <p>It is important, especially for teenagers, to learn about sustainable and eco-friendly practices and the need of protecting the environment, particularly in this period of time, when we see more accentuated climate changes around us. Learning such practices from a young age can shape an individual more anchored into the environmental reality of the moment, understanding the importance of taking action and being environmental-responsible, empowering the ones around them in doing so as well.</p>
 
@@ -74,6 +115,69 @@
     const navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('active');
   }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.getElementById('projectCarousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    const prevBtn = carousel.querySelector('.carousel-control.prev');
+    const nextBtn = carousel.querySelector('.carousel-control.next');
+    let currentIndex = 0;
+    let timer;
+
+    function setActive(index) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === index);
+      });
+      dotsContainer.querySelectorAll('button').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === index);
+      });
+      currentIndex = index;
+    }
+
+    function goTo(index) {
+      const nextIndex = (index + slides.length) % slides.length;
+      setActive(nextIndex);
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(() => goTo(currentIndex + 1), 5000);
+    }
+
+    function stopAuto() {
+      if (timer) clearInterval(timer);
+    }
+
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+      dot.addEventListener('click', () => {
+        goTo(idx);
+        startAuto();
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      goTo(currentIndex - 1);
+      startAuto();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      goTo(currentIndex + 1);
+      startAuto();
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    setActive(0);
+    startAuto();
+  });
 </script>
 </body>
 </html>
