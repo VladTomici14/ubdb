@@ -62,17 +62,28 @@ nav {
 }
 
 .dropdown-content {
-  display: none;
   position: absolute;
+  left: 0;
+  top: 100%;
   background: white;
   min-width: 200px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  margin-top: 0.5rem;
+  margin-top: 0;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  pointer-events: none;
+  z-index: 1000;
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
-.dropdown:hover .dropdown-content {
-  display: block;
+.dropdown:hover .dropdown-content,
+.dropdown:focus-within .dropdown-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
 }
 
 .dropdown-content a {
@@ -151,6 +162,38 @@ nav {
   color: #2563eb;
   margin-top: 2rem;
   margin-bottom: 1rem;
+}
+
+.video-section {
+  margin-top: 2.5rem;
+}
+
+.video-container {
+  position: relative;
+  padding-top: 56.25%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: #000;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.video-fallback {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.video-fallback a {
+  color: #2563eb;
+  text-decoration: underline;
 }
 
 /* Values Grid */
