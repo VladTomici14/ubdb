@@ -181,6 +181,11 @@ nav {
   text-decoration: underline;
 }
 
+.nature-page footer {
+  background: #2f855a;
+  color: #f7f0de;
+}
+
 .video-section {
   margin-top: 2.5rem;
 }
