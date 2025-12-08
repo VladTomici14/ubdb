@@ -196,6 +196,42 @@ nav {
   text-decoration: underline;
 }
 
+.brochure-section {
+  margin-top: 3rem;
+}
+
+.embed-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(63, 69, 81, 0.16);
+  background: #fff;
+}
+
+.embed-container iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+.canva-embed {
+  /* Aspect ratio from Canva embed snippet */
+  padding-top: 70.7071%;
+}
+
+.embed-fallback {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+}
+
+.embed-fallback a {
+  color: #2563eb;
+  text-decoration: underline;
+}
+
 /* Values Grid */
 .values-grid {
   display: grid;
