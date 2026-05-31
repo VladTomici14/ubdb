@@ -602,7 +602,7 @@ footer p {
     background: white;
   }
 
-  /* Also reveal nested submenus when the mobile nav is open so users see NNU/Donation directly */
+  /* Also reveal nested submenus when the mobile nav is open so users see Nature Needs Us/Donation directly */
   .nav-links.active .dropdown .submenu {
     display: block;
   }
