@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - UBDB</title>
+  <title>Community Activities - UBDB</title>
   <link rel="icon" type="image/x-icon" href="../assets/ubdb-icon.ico">
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -42,11 +42,17 @@
 
 <div class="container">
   <section class="page-title">
-    <h1>About</h1>
+    <h1>Community Activities</h1>
   </section>
 
-  <section class="content">
-    <p>UBDB is a non-governmental and non-profit organization which was founded in 2024. The main purpose of UBDB is to bring young people together at an European and global scale, no matter of nationality, religion or sexual orientation, in order to get to know each other and have fun on a journey full of social, cultural and sports activities.</p>
+  <section class="project-grid">
+    <div class="project-card">
+      <a href="donation-campaign.html">
+        <h3>Donation Campaign</h3>
+        <p>A charitable drive to support local initiatives and those in need.</p>
+      </a>
+    </div>
+    <!-- 2 more projects to follow -->
   </section>
 </div>
 
@@ -77,6 +83,7 @@
     }
   }
 
+  // submenu toggles for touch / small screens
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.submenu-toggle').forEach(function (btn) {
       btn.addEventListener('click', function (e) {

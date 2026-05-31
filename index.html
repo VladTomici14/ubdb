@@ -17,9 +17,21 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
       <li class="dropdown">
-        <a href="#" onclick="return false;">Activity ▾</a>
-        <div class="dropdown-content">
-          <a href="pages/nature-needs-us.html">Nature Needs Us</a>
+        <a href="#" onclick="return false;" aria-haspopup="true" aria-expanded="false">Activity ▾</a>
+        <div class="dropdown-content" role="menu" aria-label="Activity menu">
+          <div class="dropdown-column">
+            <a href="pages/erasmus-projects.html" class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Erasmus+ ▸</a>
+            <div class="submenu" role="menu">
+              <a href="pages/nature-needs-us.html">Nature Needs Us</a>
+            </div>
+          </div>
+
+          <div class="dropdown-column">
+            <a href="pages/community-activities.html" class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Community ▸</a>
+            <div class="submenu" role="menu">
+              <a href="pages/donation-campaign.html">Donation campaign</a>
+            </div>
+          </div>
         </div>
       </li>
       <li><a href="pages/about.html">About</a></li>
@@ -81,7 +93,38 @@
   function toggleMenu() {
     const navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('active');
+
+    // on small screens, when the nav opens, also open nested submenus
+    if (window.innerWidth <= 768) {
+      const submenus = document.querySelectorAll('.dropdown .submenu');
+      const toggles = document.querySelectorAll('.submenu-toggle');
+      const activityToggle = document.querySelector('.dropdown > a');
+      if (navLinks.classList.contains('active')) {
+        submenus.forEach(s => s.classList.add('open'));
+        toggles.forEach(t => t.setAttribute('aria-expanded', 'true'));
+        if (activityToggle) activityToggle.setAttribute('aria-expanded', 'true');
+      } else {
+        submenus.forEach(s => s.classList.remove('open'));
+        toggles.forEach(t => t.setAttribute('aria-expanded', 'false'));
+        if (activityToggle) activityToggle.setAttribute('aria-expanded', 'false');
+      }
+    }
   }
+
+  // submenu toggles for touch / small screens
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('.submenu-toggle').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        // only allow manual toggling for larger screens or if JS wants it
+        if (window.innerWidth > 768) return;
+        e.preventDefault();
+        const submenu = btn.nextElementSibling;
+        const expanded = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!expanded));
+        if (submenu) submenu.classList.toggle('open');
+      });
+    });
+  });
 </script>
 </body>
 </html>

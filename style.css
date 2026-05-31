@@ -66,10 +66,11 @@ nav {
   left: 0;
   top: 100%;
   background: white;
-  min-width: 200px;
+  min-width: 220px; /* slightly wider to fit indentation */
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   margin-top: 0;
+  padding-bottom: 0.75rem; /* added: give a bit of extra space at the bottom */
   opacity: 0;
   visibility: hidden;
   transform: translateY(6px);
@@ -78,6 +79,7 @@ nav {
   transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
 }
 
+/* Keep the dropdown visible on hover/focus (existing behavior) */
 .dropdown:hover .dropdown-content,
 .dropdown:focus-within .dropdown-content {
   opacity: 1;
@@ -86,14 +88,40 @@ nav {
   pointer-events: auto;
 }
 
-.dropdown-content a {
-  display: block;
-  padding: 0.75rem 1rem;
-  color: #333;
+/* Slight visual separation between columns */
+.dropdown-column {
+  border-bottom: 1px solid #f3f4f6;
 }
 
-.dropdown-content a:hover {
-  background: #f3f4f6;
+/* Make submenu-toggle stand out and keep consistent padding */
+.dropdown-column > .submenu-toggle {
+  display: block;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  color: #333; /* fixed color so it doesn't become the nav hover color */
+  transition: color 0.15s ease;
+}
+
+/* Prevent color change on hover/focus for submenu toggles */
+.dropdown-column > .submenu-toggle:hover,
+.dropdown-column > .submenu-toggle:focus {
+  color: #333; /* keep same color on hover/focus */
+}
+
+/* Indent submenu items to the right */
+.dropdown-column .submenu a {
+  /* add extra left padding so these appear shifted to the right */
+  padding-left: 2rem;
+}
+
+/* On mobile, collapse nested submenus until the user toggles them */
+@media (max-width: 768px) {
+  .dropdown-column .submenu {
+    display: none;
+  }
+  .dropdown-column .submenu.open {
+    display: block;
+  }
 }
 
 /* Hero Section */
@@ -139,6 +167,16 @@ nav {
   max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
+}
+
+.page-title {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.page-title h1 {
+  font-size: 2.5rem;
+  color: #2563eb;
 }
 
 .welcome-section {
@@ -421,23 +459,30 @@ nav {
   line-height: 1.7;
 }
 
-/* Core Areas */
-.core-areas {
+/* Core Areas & Project Grids */
+.core-areas, .project-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 2rem;
   margin-top: 3rem;
 }
 
-.area-card {
+.area-card, .project-card {
   background: white;
   padding: 2rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s, box-shadow 0.3s;
+  text-align: center;
 }
 
-.area-card:hover {
+.project-card a {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.area-card:hover, .project-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
@@ -447,13 +492,13 @@ nav {
   margin-bottom: 1rem;
 }
 
-.area-card h3 {
+.area-card h3, .project-card h3 {
   font-size: 1.5rem;
   color: #2563eb;
   margin-bottom: 1rem;
 }
 
-.area-card p {
+.area-card p, .project-card p {
   color: #666;
   line-height: 1.7;
 }
@@ -538,6 +583,30 @@ footer p {
     display: flex;
   }
 
+  /* When the mobile nav is open, show the Activity dropdown inline */
+  .nav-links.active .dropdown {
+    position: static; /* let dropdown content flow inside the nav column */
+  }
+
+  .nav-links.active .dropdown .dropdown-content {
+    position: static;
+    box-shadow: none;
+    transform: none;
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    margin: 0.5rem 0 0; /* slight gap from the Activity label */
+    padding-bottom: 0.75rem; /* preserve bottom padding */
+    min-width: auto;
+    border-radius: 6px;
+    background: white;
+  }
+
+  /* Also reveal nested submenus when the mobile nav is open so users see NNU/Donation directly */
+  .nav-links.active .dropdown .submenu {
+    display: block;
+  }
+
   .hero h1 {
     font-size: 2rem;
   }
@@ -546,7 +615,7 @@ footer p {
     font-size: 1.2rem;
   }
 
-  .core-areas {
+  .core-areas, .project-grid {
     grid-template-columns: 1fr;
   }
 

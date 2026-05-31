@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About - UBDB</title>
+  <title>Erasmus+ Projects - UBDB</title>
   <link rel="icon" type="image/x-icon" href="../assets/ubdb-icon.ico">
   <link rel="stylesheet" href="../style.css">
 </head>
@@ -22,7 +22,7 @@
           <div class="dropdown-column">
             <a href="erasmus-projects.html" class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Erasmus+ ▸</a>
             <div class="submenu" role="menu">
-              <a href="nature-needs-us.html">NNU</a>
+              <a href="nature-needs-us.html">Nature Needs Us</a>
             </div>
           </div>
 
@@ -42,11 +42,17 @@
 
 <div class="container">
   <section class="page-title">
-    <h1>About</h1>
+    <h1>Erasmus+ Projects</h1>
   </section>
 
-  <section class="content">
-    <p>UBDB is a non-governmental and non-profit organization which was founded in 2024. The main purpose of UBDB is to bring young people together at an European and global scale, no matter of nationality, religion or sexual orientation, in order to get to know each other and have fun on a journey full of social, cultural and sports activities.</p>
+  <section class="project-grid">
+    <div class="project-card">
+      <a href="nature-needs-us.html">
+        <h3>Nature Needs Us</h3>
+        <p>An initiative to promote environmental awareness and action.</p>
+      </a>
+    </div>
+    <!-- More projects can be added here -->
   </section>
 </div>
 
@@ -61,6 +67,7 @@
     const navLinks = document.getElementById('navLinks');
     navLinks.classList.toggle('active');
 
+    // on small screens, when the nav opens, also open nested submenus
     if (window.innerWidth <= 768) {
       const submenus = document.querySelectorAll('.dropdown .submenu');
       const toggles = document.querySelectorAll('.submenu-toggle');
@@ -77,9 +84,11 @@
     }
   }
 
+  // submenu toggles for touch / small screens
   document.addEventListener('DOMContentLoaded', function () {
     document.querySelectorAll('.submenu-toggle').forEach(function (btn) {
       btn.addEventListener('click', function (e) {
+        // only allow manual toggling for larger screens or if JS wants it
         if (window.innerWidth > 768) return;
         e.preventDefault();
         const submenu = btn.nextElementSibling;
