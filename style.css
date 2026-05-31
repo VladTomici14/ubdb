@@ -100,7 +100,7 @@ nav {
 .hero {
   /*background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 100%);*/
   position: relative;
-  background-image: url("assets/group-pic.jpeg");
+  background-image: url("assets/cover-ubdb.png");
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
