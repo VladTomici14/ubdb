@@ -79,6 +79,26 @@
     <!--      <img src="../assets/fii-motivul-unui-zambet.jpg" alt="Be the reason for a smile">-->
     <!--    </div>-->
   </section>
+
+  <div class="carousel" id="projectCarousel">
+    <div class="carousel-track">
+      <div class="carousel-slide active">
+        <img src="../assets/carousel2/pic1.png" alt="Project moment 1">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/carousel2/pic2.png" alt="Project moment 2">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/carousel2/pic3.png" alt="Project moment 3">
+      </div>
+      <div class="carousel-slide">
+        <img src="../assets/carousel2/pic4.png" alt="Project moment 4">
+      </div>
+    </div>
+    <button class="carousel-control prev" type="button" aria-label="Previous slide">‹</button>
+    <button class="carousel-control next" type="button" aria-label="Next slide">›</button>
+    <div class="carousel-dots" aria-label="Carousel slide selectors"></div>
+  </div>
 </div>
 
 <footer>
@@ -119,7 +139,70 @@
         if (submenu) submenu.classList.toggle('open');
       });
     });
+
+    // for carousel
+    const carousel = document.getElementById('projectCarousel');
+    if (!carousel) return;
+
+    const slides = Array.from(carousel.querySelectorAll('.carousel-slide'));
+    const dotsContainer = carousel.querySelector('.carousel-dots');
+    const prevBtn = carousel.querySelector('.carousel-control.prev');
+    const nextBtn = carousel.querySelector('.carousel-control.next');
+    let currentIndex = 0;
+    let timer;
+
+    function setActive(index) {
+      slides.forEach((slide, idx) => {
+        slide.classList.toggle('active', idx === index);
+      });
+      dotsContainer.querySelectorAll('button').forEach((dot, idx) => {
+        dot.classList.toggle('active', idx === index);
+      });
+      currentIndex = index;
+    }
+
+    function goTo(index) {
+      const nextIndex = (index + slides.length) % slides.length;
+      setActive(nextIndex);
+    }
+
+    function startAuto() {
+      stopAuto();
+      timer = setInterval(() => goTo(currentIndex + 1), 5000);
+    }
+
+    function stopAuto() {
+      if (timer) clearInterval(timer);
+    }
+
+    slides.forEach((_, idx) => {
+      const dot = document.createElement('button');
+      dot.type = 'button';
+      dot.setAttribute('aria-label', `Go to slide ${idx + 1}`);
+      dot.addEventListener('click', () => {
+        goTo(idx);
+        startAuto();
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      goTo(currentIndex - 1);
+      startAuto();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      goTo(currentIndex + 1);
+      startAuto();
+    });
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+
+    setActive(0);
+    startAuto();
   });
+
 </script>
 </body>
 </html>
