@@ -224,6 +224,20 @@ nav {
   color: #f7f0de;
 }
 
+.donation-page .hero {
+  background-image: url("assets/fii-motivul-unui-zambet.jpg");
+}
+
+.donation-page .welcome-section h2,
+.donation-page .welcome-section h3 {
+  color: #c05621;
+}
+
+.donation-page footer {
+  background: #c05621;
+  color: #fff;
+}
+
 .day-activities {
   margin: 1.25rem 0 2rem;
   padding: 1rem 1.25rem;
