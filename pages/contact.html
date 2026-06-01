@@ -11,19 +11,31 @@
 <header>
   <nav>
     <a href="../index.html" class="logo">
-      <img src="../assets/ubdb-logo.png" alt="UBDB Logo"/>
+      <img src="../assets/ubdb-logo.png" alt="UBDB Logo" />
     </a>
     <button class="menu-toggle" onclick="toggleMenu()">☰</button>
     <ul class="nav-links" id="navLinks">
       <li><a href="../index.html">Home</a></li>
       <li class="dropdown">
-        <a href="#" onclick="return false;">Activity ▾</a>
-        <div class="dropdown-content">
-          <a href="nature-needs-us.html">Nature Needs Us</a>
+        <a href="#" onclick="return false;" aria-haspopup="true" aria-expanded="false">Activity ▾</a>
+        <div class="dropdown-content" role="menu" aria-label="Activity menu">
+          <div class="dropdown-column">
+            <span class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Erasmus+ ▸</span>
+            <div class="submenu" role="menu">
+              <a href="nature-needs-us.html">Nature Needs Us</a>
+            </div>
+          </div>
+
+          <div class="dropdown-column">
+            <span class="submenu-toggle" aria-haspopup="true" aria-expanded="false">Community ▸</span>
+            <div class="submenu" role="menu">
+              <a href="donation-campaign.html">Donation campaign</a>
+            </div>
+          </div>
         </div>
       </li>
       <li><a href="about.html">About</a></li>
-      <li><a href="contact.html" class="active">Contact</a></li>
+      <li><a href="contact.html">Contact</a></li>
     </ul>
   </nav>
 </header>
