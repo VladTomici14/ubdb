@@ -124,6 +124,42 @@ nav {
   }
 }
 
+.hero-nnu {
+  position: relative;
+  background-image: url("assets/group-pic.jpeg");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  padding: 6rem 2rem;
+  text-align: center;
+  height: 50vh;
+}
+
+.hero-nnu::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+}
+
+.hero-nnu > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hero-nnu h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.hero-nnu p {
+  font-size: 1.5rem;
+  font-weight: 300;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
 /* Hero Section */
 .hero {
   /*background: linear-gradient(135deg, #3b82f6 0%, #fbbf24 100%);*/
